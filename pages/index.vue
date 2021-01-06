@@ -285,17 +285,3 @@
     }
   }
 </script>
-
-<style>
-  .asd__days--legend {
-    width: 288px !important;
-  }
-
-  .asd__wrapper--datepicker-open {
-    width: 288px !important;
-  }
-
-  .asd__month {
-    width: 295px !important;
-  }
-</style>
