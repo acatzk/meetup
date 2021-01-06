@@ -11,13 +11,29 @@
     </div>
 
     <!-- search area -->
-    <div class="sticky top-0 container mx-auto px-40 -mt-8">
+    <div class="sticky top-0 container mx-auto px-40 -mt-8 z-40">
       <div class="bg-gray-900 text-white flex items-center justify-between p-3">
         <div class="flex items-center">
           <div class="relative">
             <input class="py-3 px-2 w-72 pr-12 rounded-sm text-gray-600 focus:outline-none" type="text" placeholder="Search">
             <div class="absolute top-0 right-0 mr-3" style="top: 10px">
-              <svg class="text-gray-600" width="28" height="28" stroke="currentColor" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" data-attributes-set=",xmlns:xlink,xmlns,viewBox,preserveAspectRatio"><path xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+              <svg  class="text-gray-600" 
+                    width="28" 
+                    height="28" 
+                    stroke="currentColor" 
+                    fill="none" 
+                    xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24" 
+                    preserveAspectRatio="xMidYMid meet" 
+                    data-attributes-set=",xmlns:xlink,xmlns,viewBox,preserveAspectRatio">
+                <path xmlns="http://www.w3.org/2000/svg" 
+                      stroke-linecap="round" 
+                      stroke-linejoin="round" 
+                      stroke-width="3" 
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z">
+                </path>
+              </svg>
             </div>
           </div>
           <div class="ml-4">
@@ -148,6 +164,40 @@
             </div>
           </div>
         </div>
+
+        <div class="flex justify-end my-4 mb-4">
+          <button class="bg-white text-gray-800 px-3 rounded-sm text-xs border border-gray-500 focus:outline-none">Today</button>
+        </div>
+
+        <div class="datepicker-trigger">
+          <input
+            type="text"
+            class="hidden"
+            id="datepicker-trigger"
+            placeholder="Select dates"
+            :value="formatDates(dateOne, dateTwo)"
+          >
+ 
+          <AirbnbStyleDatepicker
+            :trigger-element-id="'datepicker-trigger'"
+            :mode="single"
+            :inline="true"
+            :monthsToShow="1"
+            :fullscreen-mobile="true"
+            :date-one="dateOne"
+            @date-one-selected="val => { dateOne = val }"
+          />
+        </div>
+
+        <div class="mt-4">
+          <a href="#" class="flex items-center justify-center">
+            <div>
+              <svg class="w-5 h-5" stroke="currentColor" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" data-attributes-set=",xmlns:xlink,xmlns,viewBox,preserveAspectRatio"><path xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </div>
+            <span class="ml-1">Export to...</span>
+          </a>
+        </div>
+
       </div>
 
     </div> <!-- end container -->
@@ -156,6 +206,7 @@
 </template>
 
 <script>
+  import format from 'date-fns/format'
   export default {
     head: {
       title: 'Find Meetup Groups near you'
@@ -165,6 +216,9 @@
     },
     data () {
       return {
+        dateFormat: 'D MMM',
+        dateOne: '',
+        dateTwo: '',
         events: [
           {
             date: 'WEDNESDAY, JANUARY 6',
@@ -216,6 +270,32 @@
         sidelinks: ['All upcoming events', 'Saved events', 'Your groups and suggestions', 'Your groups only', 'Your group only'],
         setlink: 'All upcoming events'
       }
+    },
+    methods: {
+      formatDates(dateOne, dateTwo) {
+        let formattedDates = ''
+        if (dateOne) {
+          formattedDates = format(dateOne, this.dateFormat)
+        }
+        if (dateTwo) {
+          formattedDates += ' - ' + format(dateTwo, this.dateFormat)
+        }
+        return formattedDates
+      }
     }
   }
 </script>
+
+<style>
+  .asd__days--legend {
+    width: 288px !important;
+  }
+
+  .asd__wrapper--datepicker-open {
+    width: 288px !important;
+  }
+
+  .asd__month {
+    width: 295px !important;
+  }
+</style>
