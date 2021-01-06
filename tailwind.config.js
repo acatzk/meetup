@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'meetup-blue': '#00455D'
+        'meetup-blue': '#00455D',
+        'meetup-purple': '#1F24CC'
       },
       spacing: {
         '72': '18rem'
