@@ -5,7 +5,11 @@ module.exports = {
   },
   purge: [],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'meetup-blue': '#00455D'
+      }
+    },
   },
   variants: {},
   plugins: [],
