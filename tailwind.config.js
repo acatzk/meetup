@@ -8,6 +8,9 @@ module.exports = {
     extend: {
       colors: {
         'meetup-blue': '#00455D'
+      },
+      spacing: {
+        '72': '18rem'
       }
     },
   },
