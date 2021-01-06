@@ -11,9 +11,9 @@
     </div>
 
     <!-- search area -->
-    <div class="sticky top-0 container mx-auto px-40 -mt-8 z-40">
-      <div class="bg-gray-900 text-white flex items-center justify-between p-3">
-        <div class="flex items-center">
+    <div class="sticky top-0 container mx-auto px-8 xl:px-40 -mt-8 z-40">
+      <div class="bg-gray-900 text-white flex items-center flex-col lg:flex-row justify-between p-3">
+        <div class="flex items-center flex-col lg:flex-row">
           <div class="relative">
             <input class="py-3 px-2 w-72 pr-12 rounded-sm text-gray-600 focus:outline-none" type="text" placeholder="Search">
             <div class="absolute top-0 right-0 mr-3" style="top: 10px">
@@ -42,16 +42,16 @@
             <a class="pb-1 border-b border-gray-500 hover:border-white" href="#">Manila, PH</a>
           </div>
         </div>
-        <div class="flex items-center">
+        <div class="flex items-center mt-3 sm:mt-0">
           <button class="border-l border-b border-t border-gray-700 px-6 py-2 rounded-l-sm focus:outline-none">Groups</button>
           <button class="border-r border-b border-t border-gray-700 bg-gray-700 text-white px-6 py-2 rounded-r-sm focus:outline-none">Calendar</button>
         </div>
       </div>
     </div> <!-- end container -->
 
-    <div class="mt-6 container mx-auto px-40 flex">
+    <div class="mt-6 container mx-auto px-8 xl:px-40 flex flex-col-reverse lg:flex-row">
       <!-- width of 70% -->
-      <div class="w-7/10">
+      <div class="w-full lg:w-7/10">
         <!-- looped the events -->
         <div v-for="(event, i) in events" :key="i">
           <EventCard :date="event.date" :event="event"/>
@@ -65,15 +65,15 @@
             Can't find what you're looking for? Create a Meetup group to start hosting local events.
           </div>
           
-            <div class="flex -mx-2">
-              <div class="w-1/2 mx-2">
+            <div class="flex flex-col sm:flex-row -mx-2">
+              <div class="w-full sm:w-1/2 mx-2">
                 <div class="bg-white shadow-lg mb-4">
                   <div class="px-6 py-4">
                     <div class="font-bold">
-                      <a href="#">JavaScript Libraries</a>
+                      <a href="#">Game Development</a>
                     </div>
                     <div class="text-gray-700">
-                      50 follow this topic
+                      73 follow this topic
                     </div>
                     <div class="mt-1">
                       <a class="text-teal-600 hover:underline" href="#">
@@ -83,14 +83,14 @@
                   </div>
                 </div>
               </div>
-              <div class="w-1/2 mx-2">
+              <div class="w-full sm:w-1/2 mx-2">
                 <div class="bg-white shadow-lg mb-4">
                   <div class="px-6 py-4">
                     <div class="font-bold">
-                      <a href="#">JavaScript Libraries</a>
+                      <a href="#">Google</a>
                     </div>
                     <div class="text-gray-700">
-                      50 follow this topic
+                      33 follow this topic
                     </div>
                     <div class="mt-1">
                       <a class="text-teal-600 hover:underline" href="#">
@@ -101,15 +101,15 @@
                 </div>
               </div>
             </div>
-            <div class="flex -mx-2">
-              <div class="w-1/2 mx-2">
+            <div class="flex flex-col sm:flex-row -mx-2">
+              <div class="w-full sm:w-1/2 mx-2">
                 <div class="bg-white shadow-lg mb-4">
                   <div class="px-6 py-4">
                     <div class="font-bold">
-                      <a href="#">JavaScript Libraries</a>
+                      <a href="#">Business Analytics</a>
                     </div>
                     <div class="text-gray-700">
-                      50 follow this topic
+                      127 follow this topic
                     </div>
                     <div class="mt-1">
                       <a class="text-teal-600 hover:underline" href="#">
@@ -119,14 +119,14 @@
                   </div>
                 </div>
               </div>
-              <div class="w-1/2 mx-2">
+              <div class="w-full sm:w-1/2 mx-2">
                 <div class="bg-white shadow-lg mb-4">
                   <div class="px-6 py-4">
                     <div class="font-bold">
-                      <a href="#">JavaScript Libraries</a>
+                      <a href="#">Agile Leadership</a>
                     </div>
                     <div class="text-gray-700">
-                      50 follow this topic
+                      31 follow this topic
                     </div>
                     <div class="mt-1">
                       <a class="text-teal-600 hover:underline" href="#">
@@ -148,7 +148,7 @@
       </div>
 
       <!-- width of 30% -->
-      <div class="ml-6 w-3/10">
+      <div class="ml-0 lg:ml-6 w-full lg:w-3/10">
         <div class="mt-10 border border-gray-400 rounded-sm">
           <div  class="border-b border-gray-400 bg-white  text-sm tracking-wide cursor-pointer" 
                 v-for="link in sidelinks" 
@@ -169,7 +169,7 @@
           <button class="bg-white text-gray-800 px-3 rounded-sm text-xs border border-gray-500 focus:outline-none">Today</button>
         </div>
 
-        <div class="datepicker-trigger">
+        <div class="datepicker-trigger hidden xl:block">
           <input
             type="text"
             class="hidden"
@@ -180,7 +180,7 @@
  
           <AirbnbStyleDatepicker
             :trigger-element-id="'datepicker-trigger'"
-            :mode="single"
+            :mode="`single`"
             :inline="true"
             :monthsToShow="1"
             :fullscreen-mobile="true"
@@ -189,7 +189,7 @@
           />
         </div>
 
-        <div class="mt-4">
+        <div class="mt-4 mb-6">
           <a href="#" class="flex items-center justify-center">
             <div>
               <svg class="w-5 h-5" stroke="currentColor" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" data-attributes-set=",xmlns:xlink,xmlns,viewBox,preserveAspectRatio"><path xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
