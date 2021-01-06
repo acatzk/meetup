@@ -20,7 +20,7 @@
         </li>
           <li class="relative">
           <a href="#" class="hover:text-red-600 font-light tracking-wide">Notifications</a>
-          <div class="absolute right-0 top-0 bg-green-500 w-2 h-2 rounded-full" style="right: -10px"></div>
+          <div class="absolute right-0 top-0 bg-green-400 w-2 h-2 rounded-full" style="right: -10px"></div>
         </li>
         <li>
           <a href="#" class="flex items-center">
