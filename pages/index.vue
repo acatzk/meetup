@@ -9,8 +9,9 @@
         <span>42 events near you</span>
       </div>
     </div>
+
     <!-- search area -->
-    <div class="container mx-auto px-40 -mt-8">
+    <div class="sticky top-0 container mx-auto px-40 -mt-8">
       <div class="bg-gray-900 text-white flex items-center justify-between p-3">
         <div class="flex items-center">
           <div class="relative">
@@ -31,9 +32,176 @@
         </div>
       </div>
     </div> <!-- end container -->
+
+    <div class="mt-6 container mx-auto px-40 flex">
+      <!-- width of 70% -->
+      <div class="w-7/10">
+        <!-- looped the events -->
+        <div v-for="(event, i) in events" :key="i">
+          <EventCard :date="event.date" :event="event"/>
+        </div>
+
+        <div class="border-t border-b border-gray-400 py-8 mb-8">
+          <div class="text-center font-semibold text-2xl mb-2">
+            Host events in Manila
+          </div>
+          <div class="text-center mb-8">
+            Can't find what you're looking for? Create a Meetup group to start hosting local events.
+          </div>
+          
+            <div class="flex -mx-2">
+              <div class="w-1/2 mx-2">
+                <div class="bg-white shadow-lg mb-4">
+                  <div class="px-6 py-4">
+                    <div class="font-bold">
+                      <a href="#">JavaScript Libraries</a>
+                    </div>
+                    <div class="text-gray-700">
+                      50 follow this topic
+                    </div>
+                    <div class="mt-1">
+                      <a class="text-teal-600 hover:underline" href="#">
+                        Host Events
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-1/2 mx-2">
+                <div class="bg-white shadow-lg mb-4">
+                  <div class="px-6 py-4">
+                    <div class="font-bold">
+                      <a href="#">JavaScript Libraries</a>
+                    </div>
+                    <div class="text-gray-700">
+                      50 follow this topic
+                    </div>
+                    <div class="mt-1">
+                      <a class="text-teal-600 hover:underline" href="#">
+                        Host Events
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex -mx-2">
+              <div class="w-1/2 mx-2">
+                <div class="bg-white shadow-lg mb-4">
+                  <div class="px-6 py-4">
+                    <div class="font-bold">
+                      <a href="#">JavaScript Libraries</a>
+                    </div>
+                    <div class="text-gray-700">
+                      50 follow this topic
+                    </div>
+                    <div class="mt-1">
+                      <a class="text-teal-600 hover:underline" href="#">
+                        Host Events
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-1/2 mx-2">
+                <div class="bg-white shadow-lg mb-4">
+                  <div class="px-6 py-4">
+                    <div class="font-bold">
+                      <a href="#">JavaScript Libraries</a>
+                    </div>
+                    <div class="text-gray-700">
+                      50 follow this topic
+                    </div>
+                    <div class="mt-1">
+                      <a class="text-teal-600 hover:underline" href="#">
+                        Host Events
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- </div> -->
+        </div>
+
+         <!-- looped the events -->
+        <div v-for="(event, j) in events" :key="j">
+          <EventCard :date="event.date" :event="event"/>
+        </div>
+    
+      </div>
+
+      <!-- width of 30% -->
+      <div class="ml-6 w-3/10">
+        
+      </div>
+
+    </div> <!-- end container -->
+
   </div>
 </template>
 
 <script>
-  export default {}
+  export default {
+    head: {
+      title: 'Find Meetup Groups near you'
+    },
+    components: {
+      EventCard: () => import('@/components/EventCard')
+    },
+    data () {
+      return {
+        events: [
+          {
+            date: 'WEDNESDAY, JANUARY 6',
+            venue: [
+              {
+                time: '8:00 PM',
+                title: 'Online Event: Shut Up & Write on Google Meet',
+                description: 'SHUT UP & WRITE!® METRO MANILA',
+                count: 7
+              },
+              {
+                time: '6:00 PM',
+                title: 'FREE WEBINAR: How to Outsource Development of Your App',
+                description: 'MANILA STARTUP: IDEA TO IPO',
+                count: 4
+              }
+            ]
+          },
+          {
+            date: 'THURSDAY, JANUARY 7',
+            venue: [
+              {
+                time: '6:00 PM',
+                title: 'Just Meditate Be Happy Manila: Quick Guided Meditation',
+                description: 'MANILA SAHAJA YOGA MEDITATION',
+                count: 6
+              }
+            ]
+          },
+        ],
+        categories: [
+          {
+            title: 'JavaScript Libraries',
+            count: 50
+          },
+          {
+            title: 'Lean Startup',
+            count: 1648
+          },
+          {
+            title: 'Angular2',
+            count: 7
+          },
+          {
+            title: 'Google',
+            count: 33
+          },
+        ],
+        sidelinks: ['All upcoming events', 'Saved events', 'Your groups and suggestions', 'Your groups only', 'Your group only'],
+        setlink: 'All upcoming events'
+      }
+    }
+  }
 </script>
