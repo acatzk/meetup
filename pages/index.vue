@@ -133,7 +133,21 @@
 
       <!-- width of 30% -->
       <div class="ml-6 w-3/10">
-        
+        <div class="mt-10 border border-gray-400 rounded-sm">
+          <div  class="border-b border-gray-400 bg-white  text-sm tracking-wide cursor-pointer" 
+                v-for="link in sidelinks" 
+                :key="link"
+                :class="link === setlink ? 'bg-blue-100 font-semibold text-meetup-purple' : 'bg-white font-light'"
+                @click="setlink = link">
+            <div :class="`${ link === setlink ? 'border-l-4 border-meetup-purple text-meetup-purple' : 'border-l-4 border-transparent' } px-3 py-1`">
+              <a class="relative" href="#">
+                <span>{{ link }}</span>
+                &nbsp;
+                <span class="absolute bottom-0 top-0 bg-orange-400 font-light text-xxs text-white rounded px-1" v-if="link == 'Saved events'">new</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div> <!-- end container -->
