@@ -150,7 +150,7 @@
       <!-- width of 30% -->
       <div class="ml-0 lg:ml-6 w-full lg:w-3/10">
         <div class="mt-10 border border-gray-400 rounded-sm">
-          <div  class="border-b border-gray-400 bg-white  text-sm tracking-wide cursor-pointer" 
+          <div  class="border-b last:border-0 border-gray-400 bg-white  text-sm tracking-wide cursor-pointer" 
                 v-for="link in sidelinks" 
                 :key="link"
                 :class="link === setlink ? 'bg-blue-100 font-semibold text-meetup-purple' : 'bg-white font-light'"

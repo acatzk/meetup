@@ -6,7 +6,7 @@
       <!-- looped nested object -->
       <div v-for="(ven,k) in event.venue" :key="`${k}-ey`">
         <!-- flex & event occures-->
-        <div class="border-b border-gray-300 flex p-4">
+        <div class="border-b last:border-0 border-gray-300 flex p-4">
           <div class="w-16 text-gray-600">
             <a href="#">
               {{ ven.time }}
